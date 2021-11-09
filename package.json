@@ -1,0 +1,24 @@
+{
+  "name": "test-cases-blox",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test-newsletter": "node test/newsletter.js",
+    "test-login": "node test/login.js",
+    "test-pricing": "node test/pricing.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uatiintellect/Test-Cases-Blox.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/uatiintellect/Test-Cases-Blox/issues"
+  },
+  "homepage": "https://github.com/uatiintellect/Test-Cases-Blox#readme",
+  "dependencies": {
+    "puppeteer": "^11.0.0"
+  }
+}
