@@ -4,7 +4,7 @@ require('dotenv').config();
 (async () => {
 
     const browser = await puppeteer.launch({
-    headless: false,
+    headless: true,
     defaultViewport: null,
     //executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
     args: ["--start-maximized"],
@@ -14,11 +14,11 @@ require('dotenv').config();
     var password = process.env.BLOX_PASS; // password for the vsblox
     var page = await browser.newPage(); 
 
-    // await page.setViewport({
-    //     width: 1920,
-    //     height: 1080,
-    //     deviceScaleFactor: 1,
-    //   });
+    await page.setViewport({
+        width: 1920,
+        height: 1080,
+        deviceScaleFactor: 1,
+      });
     await page.setDefaultNavigationTimeout(0);
 
 

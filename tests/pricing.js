@@ -4,9 +4,9 @@ const puppeteer = require("puppeteer");
 (async () => {
 
     const browser = await puppeteer.launch({
-    headless: false,
+    headless: true,
     defaultViewport: null,
-    executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
+    // executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
     args: ["--start-maximized"],
     }); 
 
