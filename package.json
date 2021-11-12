@@ -1,12 +1,12 @@
 {
   "name": "test-cases-blox",
   "version": "1.0.0",
-  "description": "",
+  "description": "Install the puppeteer, node modulues and package.json file by running these commands in VS Terminal:",
   "main": "index.js",
   "scripts": {
-    "test-newsletter": "node test/newsletter.js",
-    "test-login": "node test/login.js",
-    "test-pricing": "node test/pricing.js"
+    "test-newsletter": "node tests/newsletter.js",
+    "test-login": "node tests/login.js",
+    "test-pricing": "node tests/pricing.js"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,9 @@
   "homepage": "https://github.com/uatiintellect/Test-Cases-Blox#readme",
   "dependencies": {
     "puppeteer": "^11.0.0"
-  }
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "keywords": []
 }
