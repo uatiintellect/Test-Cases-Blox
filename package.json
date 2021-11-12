@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/uatiintellect/Test-Cases-Blox#readme",
   "dependencies": {
+    "dotenv": "^10.0.0",
     "puppeteer": "^11.0.0"
   },
   "directories": {
