@@ -4,9 +4,9 @@ const puppeteer = require("puppeteer");
 (async () => {
 
     const browser = await puppeteer.launch({
-    headless: false,
+    headless: true,
     defaultViewport: null,
-    executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
+    // executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
     args: ["--start-maximized"],
     }); 
 
@@ -50,5 +50,10 @@ const puppeteer = require("puppeteer");
     await page.screenshot({
         path: "./screenshots/install_blox.png",
       });
-  await browser.close();
+
+      await page.waitForTimeout(3000);
+
+    console.log("Test case passed => install_blox");
+    await browser.close();    
+    
 })();

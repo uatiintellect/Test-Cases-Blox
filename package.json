@@ -6,7 +6,9 @@
   "scripts": {
     "test-newsletter": "node tests/newsletter.js",
     "test-login": "node tests/login.js",
-    "test-pricing": "node tests/pricing.js"
+    "test-pricing": "node tests/pricing.js",
+    "test-install_blox": "node tests/install_blox.js"
+
   },
   "repository": {
     "type": "git",
