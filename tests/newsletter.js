@@ -4,41 +4,55 @@ const puppeteer = require("puppeteer");
 (async () => {
 
     const browser = await puppeteer.launch({
-    headless: false,
+    headless: true,
     defaultViewport: null,
-    executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
+    //executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
     args: ["--start-maximized"],
     }); 
 
     var page = await browser.newPage(); 
 
-    // await page.setViewport({
-    //     width: 1920,
-    //     height: 1080,
-    //     deviceScaleFactor: 1,
-    //   });
-    // await page.setDefaultNavigationTimeout(0);
+    await page.setViewport({
+        width: 1920,
+        height: 1080,
+        deviceScaleFactor: 1,
+      });
+    await page.setDefaultNavigationTimeout(0);
 
     
 
     await page.goto("https://www.vsblox.com/");
-    await page.waitForTimeout(5000); // delay for 5 second
+    await page.waitForTimeout(9000); // delay for 8 second
 
 
-    await page.click("#wow > section:nth-child(1) > div > form > div > input");
+    //scrolling till the newsletter input field
+    let input_field = page.waitForSelector(
+        "input[placeholder='Enter your email']",
+        { visible: true }
+    );
+    (await input_field).evaluate((b) =>
+      b.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+        inline: "center",
+      })
+    );
+    await page.waitForTimeout(6000);
+
+
+    let email = "tester@testing" + Math.random() + ".com";
+    (await input_field).type(email);
     await page.waitForTimeout(5000);
 
 
-    await page.type("#wow > section:nth-child(1) > div > form > div > input", "sana.alphasquad@gmail.com");
-    await page.waitForTimeout(5000);
-
-
-    await page.click("#wow > section:nth-child(1) > div > form > div > button");
+    await page.click("button[aria-label='Subscribe Now!']");
     await page.waitForTimeout(10000);
 
 
     await page.screenshot({
         path: "./screenshots/newsletter.png",
       });
-  await browser.close();
+    await page.waitForTimeout(3000);
+    console.log("Test case passed => newsletter.js");
+    await browser.close();
 })();
